@@ -1,0 +1,135 @@
+[
+    {
+        "ticker": "AMZN",
+        "info": {
+            "type": "ETF", 
+            "quantity": 56
+        }
+    },
+    {
+        "ticker": "SPY",
+        "info": {
+            "type": "ETF", 
+            "quantity": 125
+        }
+    },
+    {
+        "ticker": "QQQ",
+        "info": {
+            "type": "ETF", 
+            "quantity": 178
+        }
+    },
+    {
+        "ticker": "VTI",
+        "info": {
+            "type": "ETF", 
+            "quantity": 273
+        }
+    },
+    {
+        "ticker": "VEA",
+        "info": {
+            "type": "ETF", 
+            "quantity": 378
+        }
+    },
+    {
+        "ticker": "XLU",
+        "info": {
+            "type": "ETF", 
+            "quantity": 52
+        }
+    },
+    {
+        "ticker": "XLP",
+        "info": {
+            "type": "ETF", 
+            "quantity": 52
+        }
+    },
+    {
+        "ticker": "SPHD",
+        "info": {
+            "type": "ETF", 
+            "quantity": 100
+        }
+    },
+    {
+        "ticker": "EEM",
+        "info": {
+            "type": "ETF", 
+            "quantity": 184
+        }
+    },
+    {
+        "ticker": "VWO",
+        "info": {
+            "type": "ETF", 
+            "quantity": 186
+        }
+    },
+    {
+        "ticker": "IEF",
+        "info": {
+            "type": "ETF", 
+            "quantity": 76
+        }
+    },
+    {
+        "ticker": "TLT",
+        "info": {
+            "type": "ETF", 
+            "quantity": 198
+        }
+    },
+    {
+        "ticker": "TIP",
+        "info": {
+            "type": "ETF", 
+            "quantity": 196
+        }
+    },
+    {
+        "ticker": "BWX",
+        "info": {
+            "type": "ETF", 
+            "quantity": 220
+        }
+    },
+    {
+        "ticker": "DBC",
+        "info": {
+            "type": "ETF", 
+            "quantity": 1628
+        }
+    },
+    {
+        "ticker": "USO",
+        "info": {
+            "type": "ETF", 
+            "quantity": 161
+        }
+    },
+    {
+        "ticker": "XAUUSD",
+        "info": {
+            "type": "Commodity", 
+            "quantity": 28.204
+        }
+    },
+    {
+        "ticker": "XAGUSD",
+        "info": {
+            "type": "Commodity", 
+            "quantity": 2844.4
+        }
+    },
+    {
+        "ticker": "USD",
+        "info": {
+            "type": "Currency", 
+            "quantity": 146790.85
+        }
+    }
+]

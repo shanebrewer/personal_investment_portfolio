@@ -1,0 +1,208 @@
+[
+    {
+        "ticker": "AMZN",
+        "info": {
+            "full_name": "Amazon.com Inc.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "Stock",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "SPY",
+        "info": {
+            "full_name": "SPDR S&P 500 ETF Trust",
+            "description": "SPY tracks a market-cap-weighted index of US large- and midcap stocks selected by the S&P Committee.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "QQQ",
+        "info": {
+            "full_name": "Invesco QQQ Trust",
+            "description": "QQQ tracks a modified-market-cap-weighted index of 100 NASDAQ-listed stocks.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "VTI",
+        "info": {
+            "full_name": "Vanguard Total Stock Market ETF",
+            "description": "VTI tracks a cap-weighted index that measures the investable US equities market, encompassing the entire market-cap spectrum.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "VEA",
+        "info": {
+            "full_name": "Vanguard FTSE Developed Markets ETF",
+            "description": "VEA Fund DescriptionVEA tracks a market-cap weighted index of large-, mid- and small-cap stocks from developed markets outside the US.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "XLU",
+        "info": {
+            "full_name": "Utilities Select Sector SPDR Fund",
+            "description": "XLU tracks a market-cap-weighted index of US utilities stocks drawn exclusively from the S&P 500.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "XLP",
+        "info": {
+            "full_name": "Consumer Staples Select Sector SPDR Fund",
+            "description": "XLP tracks a market-cap-weighted index of consumer-staples stocks drawn from the S&P 500.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "SPHD",
+        "info": {
+            "full_name": "Invesco S&P 500 High Dividend Low Volatility ETF",
+            "description": "SPHD tracks a dividend-yield-weighted index comprising the 50 least volatile names chosen from a shortlist of the S&P 500's 75 highest-dividend-yielding securities.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "EEM",
+        "info": {
+            "full_name": "iShares MSCI Emerging Markets ETF",
+            "description": "EEM tracks an index of emerging-market firms weighted by market cap.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "VWO",
+        "info": {
+            "full_name": "Vanguard FTSE Emerging Markets ETF",
+            "description": "VWO tracks a market-cap-weighted index of emerging-market stocks, excluding South Korea.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "IEF",
+        "info": {
+            "full_name": "iShares 7-10 Year Treasury Bond ETF",
+            "description": "IEF tracks a market-value-weighted index of debt issued by the US Treasury with 7-10 years to maturity remaining. Treasury STRIPS are excluded.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "TLT",
+        "info": {
+            "full_name": "iShares 20+ Year Treasury Bond ETF",
+            "description": "TLT tracks a market-weighted index of debt issued by the US Treasury with remaining maturities of 20 years or more.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "TIP",
+        "info": {
+            "full_name": "iShares TIPS Bond ETF",
+            "description": "TIP tracks a market-value-weighted index of US Treasury inflation-protected securities with at least one year remaining in maturity.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "BWX",
+        "info": {
+            "full_name": "SPDR Bloomberg Barclays International Treasury Bond ETF",
+            "description": "BWX tracks a market-value weighted index of investment grade fixed-rate government bonds issued by countries outside the U.S.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "DBC",
+        "info": {
+            "full_name": "Invesco DB Commodity Index Tracking Fund",
+            "description": "DBC tracks an index of 14 commodities. It uses futures contracts to maintain exposure and selects them based on the shape of the futures curve to minimize contango.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "USO",
+        "info": {
+            "full_name": "United States Oil Fund LP",
+            "description": "USO holds near-month NYMEX futures contracts on WTI crude oil.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "VNQ",
+        "info": {
+            "full_name": "Vanguard Real Estate ETF",
+            "description": "VNQ tracks a market-cap-weighted index of companies involved in the ownership and operation of real estate in the United States.",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "ETF",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "XAUUSD",
+        "info": {
+            "full_name": "Gold",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "Commodity",
+            "currency": "USD"
+        }
+    },
+    {
+        "ticker": "XAGUSD",
+        "info": {
+            "full_name": "Silver",
+            "tick_size": 0.01,
+            "point_value": 1,
+            "instrument_type": "Commodity",
+            "currency": "USD"
+        }
+    }
+]
