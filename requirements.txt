@@ -1,0 +1,8 @@
+pandas
+coinmarketcap-client
+python-binance
+iexfinance
+quandl
+pylint
+openpyxl
+requests_cache
