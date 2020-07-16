@@ -1,8 +1,15 @@
 pandas
+numpy
+matplotlib
+mpl-finance
+scipy
 coinmarketcap-client
-python-binance
 iexfinance
 quandl
+dash
+dash-daq
+jupyter
 pylint
+requests-cache
 openpyxl
-requests_cache
+python-binance
