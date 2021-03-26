@@ -5,7 +5,7 @@ import os
 from instrument_data_access.data_access import data_access
 
 
-class binance_data_dao(data_access):
+class binance_dao(data_access):
    
     
     def __init__(self):
@@ -37,7 +37,7 @@ class binance_data_dao(data_access):
         return instrument_prices_df
 
 
-    def get_last_price_data_for_instrument_list(self, instruments_df):
+    def get_last_price_for_instrument_list(self, instruments_df):
         instruments_price_data_df = pd.DataFrame()
         for row in instruments_df.itertuples():
             instrument_df = self.get_last_price(getattr(row, 'Instrument'))
@@ -55,10 +55,10 @@ class binance_data_dao(data_access):
 
 
     def get_last_prices_from_instruments_in_csv_file(self, filename):
-        instruments_df = super().read_equity_list_from_csv(filename)
+        instruments_df = super().get_instrument_list_from_csv(filename)
         return self.get_last_price_for_instrument_list(instruments_df)
     
 
     def get_historical_price_data_from_csv_file(self, filename, start_date, end_date):
-        instruments_df = super().read_equity_list_from_csv(filename)
+        instruments_df = super().get_instrument_list_from_csv(filename)
         return self.get_historical_price_data_for_instrument_list(instruments_df, start_date, end_date)

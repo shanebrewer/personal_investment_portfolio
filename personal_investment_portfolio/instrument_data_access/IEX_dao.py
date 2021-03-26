@@ -1,17 +1,15 @@
-from iexfinance.stocks import get_historical_data
-from iexfinance.stocks import Stock
+from iexfinance.stocks import get_historical_data, Stock
 import requests_cache
 from datetime import datetime, timedelta
 import pandas as pd
 import time
-import os
 from instrument_data_access.data_access import data_access
 
 
 class iex_dao(data_access):
 
     def __init__(self):
-        self.IEX_CLOUD_TOKEN = os.environ.get('IEX_TOKEN')
+        
         expiry = timedelta(days=7)
         self.session = requests_cache.CachedSession(cache_name='cache',
                                                    backend='sqlite',
@@ -34,27 +32,38 @@ class iex_dao(data_access):
                                                  instrument,
                                                  start_date, 
                                                  end_date):
-        print("Processing: " + instrument)
+        print("IEX Processing: " + instrument)
         instrument_df = pd.DataFrame()
 
         try:
             instrument_df = get_historical_data(instrument,
                                                 start=start_date, 
                                                 end=end_date,
-                                                session=self.session,
+                                                #session=self.session,
+                                                close_only=True,
                                                 output_format='pandas')
             instrument_df = instrument_df.assign(Instrument=instrument)
-        except Exception:
+        except Exception as e:
             print("Could not process " + instrument)
         return instrument_df
 
 
+    def get_instruments_last_price_from_csv_file(self, filename):
+        instruments_df = super().get_instrument_list_from_csv(filename)
+        return self.get_last_price_for_instrument_df(instruments_df)
+
+
     def get_last_price_for_instrument_df(self, instruments_df):
-        return Stock(instruments_df['Instrument'].values.tolist()).get_price()
+        price_df = pd.DataFrame()
+        try:
+            price_df = Stock(instruments_df['Instrument'].values.tolist(), session=self.session).get_price()
+        except Exception as e:
+            print("IEX Query Error")
+        return price_df
 
 
     def get_last_price(self, instrument):
-        print("Processing: " + instrument)
+        print("IEX Processing: " + instrument)
         stock = Stock(instrument, session=self.session)
         return stock.get_price()
 
@@ -83,6 +92,4 @@ class iex_dao(data_access):
         return companies_info_df
 
 
-    def get_instruments_last_price_from_csv_file(self, filename):
-        instruments_df = super().get_instrument_list_from_csv(filename)
-        return self.get_last_price_for_instrument_df(instruments_df)
+

@@ -6,6 +6,7 @@ scipy
 coinmarketcap-client
 iexfinance
 quandl
+plotly
 dash
 dash-daq
 jupyter
@@ -13,3 +14,7 @@ pylint
 requests-cache
 openpyxl
 python-binance
+yfinance
+intrinio-sdk
+cufflinks
+pyEX

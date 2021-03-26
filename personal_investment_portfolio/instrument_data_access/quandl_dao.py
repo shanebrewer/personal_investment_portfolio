@@ -12,33 +12,33 @@ class quandl_dao(data_access):
         quandl.ApiConfig.api_key = os.environ.get('QUANDL_TOKEN')
 
 
-    def get_latest_commodity_prices_from_quandl(self):
-        print("Processing Commodities")
-        commodity_df = self.get_latest_gold_price_from_quandl()
-        commodity_df = commodity_df.append(self.get_latest_silver_price_from_quandl())
+    def get_latest_commodity_prices(self):
+        print("Quandle Processing Commodities")
+        commodity_df = self.get_latest_gold_price()
+        commodity_df = commodity_df.append(self.get_latest_silver_price())
         return commodity_df
 
 
-    def get_latest_gold_price_from_quandl(self):
-        gold_df = self.get_latest_instrument_price_from_quandl('LBMA/GOLD')
+    def get_latest_gold_price(self):
+        gold_df = self.get_latest_instrument_price('LBMA/GOLD')
         gold_df['Commodity'] = 'Gold'
         return gold_df
         
 
-    def get_latest_silver_price_from_quandl(self):
-        silver_df = self.get_latest_instrument_price_from_quandl('LBMA/SILVER')
+    def get_latest_silver_price(self):
+        silver_df = self.get_latest_instrument_price('LBMA/SILVER')
         silver_df['Commodity'] = 'Silver'
         return silver_df
 
-    def get_latest_instrument_price_from_quandl(self, instrument):
-        print("Processing: " + instrument)
+    def get_latest_instrument_price(self, instrument):
+        print("Quandle Processing: " + instrument)
         instrument_df = quandl.get(instrument, rows=1)
         instrument_df.sort_index(ascending=False, inplace=True)
         return instrument_df
     
 
-    def get_instrument_historical_prices_from_quandl(self, instrument, start_date, end_date):
-        print("Processing: " + instrument)
+    def get_instrument_historical_prices(self, instrument, start_date, end_date):
+        print("Quandle Processing: " + instrument)
         instrument_df = quandl.get(instrument, start_date=start_date, end_date=end_date)
         instrument_df.sort_index(ascending=False, inplace=True)
         return instrument_df

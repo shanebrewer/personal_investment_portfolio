@@ -10,7 +10,7 @@ class data_access:
 
     def get_instrument_list_from_csv(self, filename_and_path):
         print("Reading data file: " + filename_and_path)
-        check_file_read_permissions(filename_and_path)
+        self.check_file_read_permissions(filename_and_path)
 
         # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
         df = pd.DataFrame()
