@@ -2,6 +2,7 @@ from binance.client import Client, BinanceAPIException
 from datetime import datetime
 import pandas as pd
 import os
+import time
 from instrument_data_access.data_access import data_access
 
 
@@ -23,13 +24,14 @@ class binance_dao(data_access):
 
 
     def get_historical_price_data_for_instrument(self, instrument, start_date, end_date):
-        print("Processing: " + instrument)
+        print("Binance processing: " + instrument)
         try:
             instrument_prices = self.client.get_historical_klines(symbol=instrument, interval='1d', start_str=start_date.strftime('%m/%d/%Y'))
             instrument_prices_df = pd.DataFrame(instrument_prices, columns = ['Open_Time', 'Open', 'High', 'Low', 'Close', 'Volume', 'Close_Time', 'Quote_Asset_Volume', 'Num_Trades', 'Taker_Buy_Base_Volume', 'Taker_Buy_Quote_Volume', 'Ignore'])
             instrument_prices_df['Date'] = pd.to_datetime(instrument_prices_df['Open_Time'], unit='ms')
             instrument_prices_df = instrument_prices_df.assign(Instrument=instrument)
             instrument_prices_df = instrument_prices_df[['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Instrument']]
+            time.sleep(1)
         except BinanceAPIException:
             print("BinanceAPIException thrown for " + instrument)
         except Exception:
@@ -46,9 +48,10 @@ class binance_dao(data_access):
 
 
     def get_last_price(self, instrument):
-        print("Processing: " + instrument)
+        print("Binance processing: " + instrument)
         try:
-            price = (self.client.get_ticker(symbol=instrument))['lastPrice']
+            price = (self.client.get_symbol_ticker(symbol=instrument))['price']
+            time.sleep(1)
         except Exception:
             print("Could not process " + instrument)
         return price

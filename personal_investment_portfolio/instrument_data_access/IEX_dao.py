@@ -1,15 +1,14 @@
 from iexfinance.stocks import get_historical_data, Stock
 import requests_cache
-from datetime import datetime, timedelta
+from datetime import timedelta
 import pandas as pd
-import time
+import os
 from instrument_data_access.data_access import data_access
 
 
 class iex_dao(data_access):
 
     def __init__(self):
-        
         expiry = timedelta(days=7)
         self.session = requests_cache.CachedSession(cache_name='cache',
                                                    backend='sqlite',
@@ -39,7 +38,7 @@ class iex_dao(data_access):
             instrument_df = get_historical_data(instrument,
                                                 start=start_date, 
                                                 end=end_date,
-                                                #session=self.session,
+                                                session=self.session,
                                                 close_only=True,
                                                 output_format='pandas')
             instrument_df = instrument_df.assign(Instrument=instrument)

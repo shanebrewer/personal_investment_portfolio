@@ -1,7 +1,8 @@
 import sys
 import os
 import logging
-from instrument_data_access import iex_dao as eq
+from instrument_data_access import IEX_dao as eq
+from instrument_data_access import pyex_dao as pyex
 from instrument_data_access import binance_dao as bi
 from instrument_data_access import quandl_dao as qdl
 from pathlib import Path, PurePath
@@ -9,7 +10,7 @@ import pandas as pd
 from datetime import datetime
 
 
-START_DATE = datetime(2017, 1, 1)
+START_DATE = datetime(2016, 1, 1)
 END_DATE = datetime.now()
 TODAY_DATE = datetime.now().strftime('%m-%d-%Y')
 BASE_DIRECTORY = PurePath(os.getcwd())
@@ -17,7 +18,8 @@ DATA_DIRECTORY = BASE_DIRECTORY / 'data'
 EQUITY_PORTFOLIO_CSV_FILENAME = DATA_DIRECTORY / "Portfolio_Instruments.csv"
 #CRYPTOCURRENCY_PORTFOLIO_CSV_FILENAME = DATA_DIRECTORY / "CoinMarketCap_Cryptocurrency_IDs.csv"
 CRYPTOCURRENCY_PORTFOLIO_CSV_FILENAME = DATA_DIRECTORY / "Binance_Instruments.csv"
-OUTPUT_DIRECTORY = BASE_DIRECTORY / 'output'
+# OUTPUT_DIRECTORY = BASE_DIRECTORY / 'output'
+OUTPUT_DIRECTORY = PurePath("/mnt/d/Users/Shane/repositories/investing/personal_investment_portfolio/output")
 OUTPUT_EXCEL_FILENAME = OUTPUT_DIRECTORY / 'portfolio_data.xlsx'
 
 
@@ -46,12 +48,18 @@ if __name__ == '__main__':
     
     # Download Equity prices
     iex_downloader = eq.iex_dao()
-    portfolio_last_price_dict = iex_downloader.get_instruments_last_price_from_csv_file(EQUITY_PORTFOLIO_CSV_FILENAME.as_posix())
-    portfolio_last_price_df = pd.DataFrame.from_dict([portfolio_last_price_dict])
+    portfolio_last_price_df = iex_downloader.get_instruments_last_price_from_csv_file(EQUITY_PORTFOLIO_CSV_FILENAME.as_posix())
+    print(portfolio_last_price_df)
     portfolio_historical_price_df = iex_downloader.get_instruments_historical_prices_from_csv_file(EQUITY_PORTFOLIO_CSV_FILENAME.as_posix(),
                                                                                                    START_DATE,
-                                                                                                   END_DATE)
+                                                                                                   TODAY_DATE)
     
+    #iex_downloader = pyex.pyex_dao()
+    #portfolio_last_price_dict = iex_downloader.get_instruments_last_price_from_csv_file(EQUITY_PORTFOLIO_CSV_FILENAME.as_posix())
+
+
+
+
     # Download Crypto prices
     #cryptocurrency_last_price_df = \
     #    cmc.get_latest_cryptocurrency_portfolio_prices_from_coinmarketcap(CRYPTOCURRENCY_PORTFOLIO_CSV_FILENAME.as_posix())
@@ -62,7 +70,7 @@ if __name__ == '__main__':
 
     # Download Commodity Prices
     quandl_downloader = qdl.quandl_dao()
-    commodity_df = quandl_downloader.get_latest_commodity_prices_from_quandl()
+    commodity_df = quandl_downloader.get_latest_commodity_prices()
 
     write_excel_file(portfolio_last_price_df,
                      portfolio_historical_price_df,
