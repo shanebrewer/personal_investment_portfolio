@@ -1,0 +1,7 @@
+venv/
+.vscode/
+.venv/
+data/positions.csv
+data/positions.json
+cache.sqlite
+output
